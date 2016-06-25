@@ -23,12 +23,15 @@ class Node{
 class LinkedList{
 	private int size;
 	private Node start;
+	LinkedListProblems ob=new LinkedListProblems();
 	LinkedList(){
 		this.size=0;
 		this.start=null;
 	}
 	int getSize(){
-		return size;
+		
+		return (ob.getSize(start));
+		
 	}
 	void display(){
 		Node tmp=start;
@@ -101,6 +104,9 @@ class LinkedList{
 		}
 		
 	}
+	String middleElement(){
+		return (ob.middleData(start));
+	}
 }
 public class TestLinkedList {
 
@@ -117,6 +123,7 @@ public class TestLinkedList {
 			System.out.println("enter 4 for display");
 			System.out.println("enter 5 for insert Node at middle");
 			System.out.println("enter 6 for delete");
+			System.out.println("enter 7 for getting middle element");
 			System.out.println("enter your choice");
 			int choice = sc.nextInt();
 			switch(choice){
@@ -136,7 +143,7 @@ public class TestLinkedList {
 				System.out.println("size of linked list is "+ obj.getSize());
 				break;
 			case 4 :
-				if(obj.getSize()<=0){
+				if(obj.getSize()==0){
 					System.out.println("no item in Linked List ");	
 				}
 				else{
@@ -156,6 +163,9 @@ public class TestLinkedList {
 				obj.delete(sc.nextInt());
 				System.out.println("list is as ");
 				obj.display();
+			case 7 :
+				System.out.println("middle element of linked list is: "+obj.middleElement());
+				
 		    default:
 		    	System.out.println("wrong choice");
 		    	break;
@@ -163,6 +173,7 @@ public class TestLinkedList {
 			System.out.println("for continue enter y");
 		    ch =sc.next().charAt(0);	
 		}while(ch==('y')||ch=='Y');
+		
 		
 	}
 }
